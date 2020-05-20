@@ -2,7 +2,7 @@
 Description=Delete Slack Messages
 
 [Timer]
-OnCalendar=*-*-* 2,14:00
+OnCalendar=*-*-* 3,15:00
 Persistent=true
 
 [Install]

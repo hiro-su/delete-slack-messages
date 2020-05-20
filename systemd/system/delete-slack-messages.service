@@ -1,11 +1,14 @@
 [Unit]
 Description=Delete Slack Messages
+After       = network.target remote-fs.target nss-lookup.target
 
 [Service]
 User=
 Type=oneshot
-WorkingDirectory=
-ExecStart=$WorkingDirectory/delete-slack-messages/delete-slack-messages.js $SLACK_CHANNEL_ID
-Environment="PATH=/home/$USER/.anyenv/envs/nodenv/shims/node:$PATH"
+ExecStart=/bin/sh -c '$DIR/delete-slack-messages.js $SLACK_CHANNEL_ID'
+Environment="PATH=/home/$USER/.nodebrew/current/bin:$PATH"
 Environment="SLACK_TOKEN="
 Environment="SLACK_CHANNEL_ID="
+
+[Install]
+WantedBy=multi-user.target
