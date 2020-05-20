@@ -1,0 +1,9 @@
+[Unit]
+Description=Delete Slack Messages
+
+[Timer]
+OnCalendar=*-*-* 2,14:00
+Persistent=true
+
+[Install]
+WantedBy=timers.target
