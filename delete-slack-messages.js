@@ -67,7 +67,7 @@ async function deleteMessages(threadTs, messages) {
   } else {
     const response = await get(deleteApiUrl + message.ts);
 
-    console.log(response);
+    //console.log(response);
 
     if (response.ok === true) {
       console.log(new Date(message.ts * 1000) + (threadTs ? ' reply' : '') + ' deleted!');
@@ -91,7 +91,7 @@ async function deleteMessages(threadTs, messages) {
 async function fetchAndDeleteMessages(threadTs, cursor) {
   const response = await get((threadTs ? repliesApiUrl + threadTs + '&cursor=' : historyApiUrl) + cursor);
 
-  console.log(response);
+  //console.log(response);
 
   if (!response.messages || response.messages.length === 0) {
     return;
